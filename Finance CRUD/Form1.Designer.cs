@@ -30,21 +30,28 @@
         {
             txtDescricao = new TextBox();
             groupBox1 = new GroupBox();
+            btnLimpar = new Button();
+            btnSalvar = new Button();
             label3 = new Label();
             cboTipo = new ComboBox();
             dtpData = new DateTimePicker();
             label2 = new Label();
             txtValor = new TextBox();
             label1 = new Label();
-            btnSalvar = new Button();
-            btnLimpar = new Button();
             groupBox2 = new GroupBox();
-            dgvLancamentos = new DataGridView();
-            btnExcluir = new Button();
             btnEditar = new Button();
+            btnExcluir = new Button();
+            dgvLancamentos = new DataGridView();
+            groupBox3 = new GroupBox();
+            lblSaldo = new Label();
+            btnFiltrar = new Button();
+            txtFiltroDesc = new TextBox();
+            label4 = new Label();
+            cboFiltroTipo = new ComboBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLancamentos).BeginInit();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // txtDescricao
@@ -76,6 +83,26 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Dados do Lançamento";
             // 
+            // btnLimpar
+            // 
+            btnLimpar.Location = new Point(212, 262);
+            btnLimpar.Name = "btnLimpar";
+            btnLimpar.Size = new Size(169, 28);
+            btnLimpar.TabIndex = 8;
+            btnLimpar.Text = "Limpar";
+            btnLimpar.UseVisualStyleBackColor = true;
+            btnLimpar.Click += btnLimpar_Click;
+            // 
+            // btnSalvar
+            // 
+            btnSalvar.Location = new Point(25, 262);
+            btnSalvar.Name = "btnSalvar";
+            btnSalvar.Size = new Size(169, 28);
+            btnSalvar.TabIndex = 7;
+            btnSalvar.Text = "Salvar";
+            btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
+            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -92,7 +119,7 @@
             cboTipo.Items.AddRange(new object[] { "Entrada", "Saída" });
             cboTipo.Location = new Point(25, 230);
             cboTipo.Name = "cboTipo";
-            cboTipo.Size = new Size(121, 26);
+            cboTipo.Size = new Size(169, 26);
             cboTipo.TabIndex = 5;
             // 
             // dtpData
@@ -131,24 +158,6 @@
             label1.TabIndex = 1;
             label1.Text = "Descrição";
             // 
-            // btnSalvar
-            // 
-            btnSalvar.Location = new Point(25, 262);
-            btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(169, 28);
-            btnSalvar.TabIndex = 7;
-            btnSalvar.Text = "Salvar";
-            btnSalvar.UseVisualStyleBackColor = true;
-            // 
-            // btnLimpar
-            // 
-            btnLimpar.Location = new Point(212, 262);
-            btnLimpar.Name = "btnLimpar";
-            btnLimpar.Size = new Size(169, 28);
-            btnLimpar.TabIndex = 8;
-            btnLimpar.Text = "Limpar";
-            btnLimpar.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
             groupBox2.BackColor = SystemColors.ActiveCaption;
@@ -162,6 +171,26 @@
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "Painel de Visualização";
+            // 
+            // btnEditar
+            // 
+            btnEditar.Location = new Point(310, 520);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(234, 28);
+            btnEditar.TabIndex = 9;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
+            // 
+            // btnExcluir
+            // 
+            btnExcluir.Location = new Point(17, 520);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(234, 28);
+            btnExcluir.TabIndex = 8;
+            btnExcluir.Text = "Excluir";
+            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // dgvLancamentos
             // 
@@ -177,29 +206,76 @@
             dgvLancamentos.Size = new Size(527, 451);
             dgvLancamentos.TabIndex = 0;
             // 
-            // btnExcluir
+            // groupBox3
             // 
-            btnExcluir.Location = new Point(17, 520);
-            btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(234, 28);
-            btnExcluir.TabIndex = 8;
-            btnExcluir.Text = "Excluir";
-            btnExcluir.UseVisualStyleBackColor = true;
+            groupBox3.BackColor = SystemColors.ActiveCaption;
+            groupBox3.Controls.Add(lblSaldo);
+            groupBox3.Controls.Add(btnFiltrar);
+            groupBox3.Controls.Add(txtFiltroDesc);
+            groupBox3.Controls.Add(label4);
+            groupBox3.Controls.Add(cboFiltroTipo);
+            groupBox3.Font = new Font("Gill Sans Ultra Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox3.Location = new Point(143, 334);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(403, 256);
+            groupBox3.TabIndex = 3;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Controle e Status";
             // 
-            // btnEditar
+            // lblSaldo
             // 
-            btnEditar.Location = new Point(310, 520);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(234, 28);
-            btnEditar.TabIndex = 9;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = true;
+            lblSaldo.AutoSize = true;
+            lblSaldo.Font = new Font("Gill Sans Ultra Bold", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSaldo.Location = new Point(25, 187);
+            lblSaldo.Name = "lblSaldo";
+            lblSaldo.Size = new Size(174, 39);
+            lblSaldo.TabIndex = 11;
+            lblSaldo.Text = "R$ 00.00";
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.Location = new Point(25, 74);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(169, 23);
+            btnFiltrar.TabIndex = 9;
+            btnFiltrar.Text = "Filtrar";
+            btnFiltrar.UseVisualStyleBackColor = true;
+            btnFiltrar.Click += btnFiltrar_Click;
+            // 
+            // txtFiltroDesc
+            // 
+            txtFiltroDesc.Location = new Point(212, 42);
+            txtFiltroDesc.Multiline = true;
+            txtFiltroDesc.Name = "txtFiltroDesc";
+            txtFiltroDesc.ScrollBars = ScrollBars.Vertical;
+            txtFiltroDesc.Size = new Size(169, 134);
+            txtFiltroDesc.TabIndex = 8;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Gill Sans Ultra Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(25, 18);
+            label4.Name = "label4";
+            label4.Size = new Size(153, 23);
+            label4.TabIndex = 7;
+            label4.Text = "Filtro por Tipo";
+            // 
+            // cboFiltroTipo
+            // 
+            cboFiltroTipo.FormattingEnabled = true;
+            cboFiltroTipo.Items.AddRange(new object[] { "Todos", "Entrada", "Saída" });
+            cboFiltroTipo.Location = new Point(25, 42);
+            cboFiltroTipo.Name = "cboFiltroTipo";
+            cboFiltroTipo.Size = new Size(169, 26);
+            cboFiltroTipo.TabIndex = 0;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1248, 679);
+            Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "Form1";
@@ -208,6 +284,8 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvLancamentos).EndInit();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -227,5 +305,11 @@
         private Button btnExcluir;
         private DataGridView dgvLancamentos;
         private Button btnEditar;
+        private GroupBox groupBox3;
+        private Label label4;
+        private ComboBox cboFiltroTipo;
+        private TextBox txtFiltroDesc;
+        private Label lblSaldo;
+        private Button btnFiltrar;
     }
 }
